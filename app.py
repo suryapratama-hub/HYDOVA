@@ -146,16 +146,42 @@ input,textarea,[data-baseweb="select"]>div {
 [data-baseweb="tab"][aria-selected="true"] {background:#fff;color:#0b7899;box-shadow:0 2px 8px rgba(8,54,80,.08)}
 [data-testid="stDataFrame"],[data-testid="stTable"] {border:1px solid var(--line);border-radius:12px;overflow:hidden}
 [data-testid="stFileUploader"] {background:rgba(255,255,255,.7);border:1px dashed #9bcddd;border-radius:14px;padding:8px}
-/* Alert: paksa kontras teks pada info, sukses, peringatan, dan error */
-[data-testid="stAlert"] {
-  border-radius:12px; border:1px solid #c8e0ec;
-  background:#eaf6fb !important; color:#123047 !important;
-}
-[data-testid="stAlert"] p,
-[data-testid="stAlert"] span,
-[data-testid="stAlert"] div,
-[data-testid="stAlert"] [data-testid="stMarkdownContainer"] * {
+/* Alert/info/success/warning/error: paksa latar terang dan teks gelap.
+   Aturan dibuat spesifik untuk mengalahkan warna tema bawaan Streamlit. */
+div[data-testid="stAlert"],
+div[data-testid="stAlert"] > div,
+div[data-testid="stAlert"] [data-testid="stMarkdownContainer"] {
+  background:#eaf6fb !important;
+  background-color:#eaf6fb !important;
   color:#123047 !important;
+  border-color:#b9dce9 !important;
+  border-radius:12px !important;
+}
+div[data-testid="stAlert"] *,
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] span,
+div[data-testid="stAlert"] div,
+div[data-testid="stAlert"] li,
+div[data-testid="stAlert"] strong,
+div[data-testid="stAlert"] em,
+div[data-testid="stAlert"] a,
+div[data-testid="stAlert"] [data-testid="stMarkdownContainer"] * {
+  color:#123047 !important;
+  -webkit-text-fill-color:#123047 !important;
+  opacity:1 !important;
+}
+div[data-testid="stAlert"] svg {
+  fill:#168aad !important;
+  color:#168aad !important;
+}
+/* Pesan status lain yang memakai role alert */
+[role="alert"]:not([data-testid="stAlert"]) {
+  color:#123047 !important;
+}
+[role="alert"]:not([data-testid="stAlert"]) p,
+[role="alert"]:not([data-testid="stAlert"]) span {
+  color:#123047 !important;
+  -webkit-text-fill-color:#123047 !important;
 }
 /* Label dan nilai komponen input/dropdown */
 [data-testid="stWidgetLabel"] p,
