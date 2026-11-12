@@ -146,7 +146,41 @@ input,textarea,[data-baseweb="select"]>div {
 [data-baseweb="tab"][aria-selected="true"] {background:#fff;color:#0b7899;box-shadow:0 2px 8px rgba(8,54,80,.08)}
 [data-testid="stDataFrame"],[data-testid="stTable"] {border:1px solid var(--line);border-radius:12px;overflow:hidden}
 [data-testid="stFileUploader"] {background:rgba(255,255,255,.7);border:1px dashed #9bcddd;border-radius:14px;padding:8px}
-[data-testid="stAlert"] {border-radius:12px;border:1px solid var(--line)}
+/* Alert: paksa kontras teks pada info, sukses, peringatan, dan error */
+[data-testid="stAlert"] {
+  border-radius:12px; border:1px solid #c8e0ec;
+  background:#eaf6fb !important; color:#123047 !important;
+}
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span,
+[data-testid="stAlert"] div,
+[data-testid="stAlert"] [data-testid="stMarkdownContainer"] * {
+  color:#123047 !important;
+}
+/* Label dan nilai komponen input/dropdown */
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] label,
+[data-testid="stWidgetLabel"] span {
+  color:#123047 !important; font-weight:600;
+}
+[data-baseweb="select"] *,
+[data-baseweb="input"] input,
+[data-baseweb="textarea"] textarea,
+[data-testid="stDateInput"] input,
+[data-testid="stNumberInput"] input {
+  color:#123047 !important;
+  -webkit-text-fill-color:#123047 !important;
+}
+[data-baseweb="select"] > div,
+[data-baseweb="input"] > div,
+[data-baseweb="textarea"] > div {
+  background:#ffffff !important;
+}
+[data-baseweb="select"] input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color:#718b9a !important; opacity:1 !important;
+}
 [data-testid="stExpander"] {background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:12px}
 [data-testid="stPlotlyChart"],.stPyplot {background:#f4fbff;border-radius:14px}
 [data-testid="stProgress"]>div>div {background:linear-gradient(90deg,#168aad,#8ed3e6)}
