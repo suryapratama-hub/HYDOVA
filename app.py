@@ -80,10 +80,19 @@ st.markdown("""
 [data-testid="stSidebar"] * {color:#eaf8fc}
 [data-testid="stSidebar"] hr {border-color:rgba(198,234,243,.2)}
 [data-testid="stSidebar"] [data-testid="stRadio"]>label {display:none}
-[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] {gap:7px}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] {
+  gap:5px;align-items:flex-start;
+}
+/* Hilangkan indikator radio berbentuk lingkaran. */
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"]>label>div:first-child {
+  display:none !important;
+}
+/* Navigasi menjadi kotak ringkas yang mengikuti panjang teks. */
 [data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"]>label {
-  min-height:46px;padding:5px 12px;border-radius:12px;
-  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.035);
+  display:inline-flex !important;width:fit-content;max-width:100%;
+  min-height:0;padding:7px 11px;margin:0;
+  border-radius:6px;background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.035);
   transition:all .18s ease;
 }
 [data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"]>label:hover {
@@ -93,7 +102,9 @@ st.markdown("""
   background:linear-gradient(100deg,#168aad,#20a4c7);border:1px solid #8ed3e6;
   box-shadow:0 5px 16px rgba(0,0,0,.15)
 }
-[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"]>label p {color:#f2fbfd;font-weight:650}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"]>label p {
+  color:#f2fbfd;font-weight:650;margin:0;
+}
 .hydova-hero {
   position:relative;overflow:hidden;padding:25px 30px;margin:0 0 22px;border-radius:22px;
   color:#fff;background:linear-gradient(115deg,#06283d 0%,#0b5871 52%,#168aad 100%);
